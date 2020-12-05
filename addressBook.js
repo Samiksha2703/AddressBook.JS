@@ -2,8 +2,8 @@
 class ContactDetails {
     
     constructor(...params) {
-      this.firstName = params[0];
-      this.lastName = params[1];
+      this.firstNameRegex = params[0];
+      this.lastNameRegex = params[1];
       this.address = params[2];
       this.city = params[3];
       this.state = params[4];
@@ -12,22 +12,22 @@ class ContactDetails {
       this.email = params[7];
     }
 
-    get firstName() { return this._firstName; }
-    set firstName(firstName) {
-      let nameRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
-      if (nameRegex.test(firstName))
-        this._firstName = firstName;
+    get firstNameRegex() { return this._firstNameRegex; }
+    set firstNameRegex(firstNameRegex) {
+      let firstNameRegexRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
+      if (firstNameRegexRegex.test(firstNameRegex))
+        this._firstNameRegex = firstNameRegex;
       else
         throw "Invalid first Name";
     }
   
-    get lastName() { return this._lastName; }
-    set lastName(lastName) {
-      let nameRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
-      if (nameRegex.test(lastName))
-        this._lastName = lastName;
+    get lastNameRegex() { return this._lastNameRegex; }
+    set lastNameRegex(lastNameRegex) {
+      let firstNameRegexRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
+      if (firstNameRegexRegex.test(lastNameRegex))
+        this._lastNameRegex = lastNameRegex;
       else
-        throw "Invalid  last Name";
+        throw "Invalid last Name";
     }
   
     get address() { return this._address; }
@@ -85,11 +85,25 @@ class ContactDetails {
     }
   
     toString() {
-      return "First Name: " + this.firstName + ", Last Name: " + this.lastName
+      return "First Name: " + this.firstNameRegex + ", Last Name: " + this.lastNameRegex
         + "\nAddress: " + this.address
-        + ", City: " + this.city + ", State: "
-        + this.state + "\nZip: " + this.zip
-        + ", Phone Number: " + this.phoneNumber + ", Email: " + this.email;
+        + ", City: " + this.city + ", Zip Code: " + this.zip +
+        "\nState: " + this.state + "\nPhone : " + this.phoneNumber + ", Email: " + this.email;
     }
   }
 console.log("Welcome to the Address Book Program");
+try {
+let detailsArray = new Array();
+    detailsArray.push(new ContactDetails("Samiksha", "Shende", "RamNagar", "Wardha", "Maharashtra", "442 001",
+      "91 7643112366", "shende.samiksha@gmail.com"));
+    detailsArray.push(new ContactDetails("Neha", "Diwate", "Nalod", "Ahmedabad", "Gujrat",
+      "369 785", "91 7658708428", "neha89@gmail.com"));
+    detailsArray.push(new ContactDetails("Apurva", "Ikhe", "Panzarapol", "Vadodara", "Gujrat",
+      "963 698", "91 7525752131", "apurva.ikhe@gmail.com"));
+    detailsArray.push(new ContactDetails("Pratiksha", "Thute", "Virat", "Airoli", "Maharashra",
+      "852 475", "91 8624592165", "pratikshathute@gmail.com"));
+detailsArray.forEach((contact) => console.log(contact.toString()));}
+catch (e) {
+  console.log(e);
+}
+

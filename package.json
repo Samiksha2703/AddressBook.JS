@@ -1,0 +1,11 @@
+{
+  "name": "addressbook",
+  "version": "1.0.0",
+  "description": "Address Book",
+  "main": "pattern.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Samiksha Shende",
+  "license": "ISC"
+}

@@ -136,13 +136,41 @@ let detailsArray = new Array();
   else
     console.log("\nduplicate entry");
 
-  console.log("\nSearching person by city ")
-  function searchPerson(detailsArray) {
-      if (detailsArray.city == "Vadodara")
-        console.log(detailsArray.toString());
+  let person =0;
+  console.log("\nSearching person by city ");
+  function searchPersonCity(detailsArray) {
+      if (detailsArray.city == "Vadodara");{
+       console.log(detailsArray.toString());
     }
-    detailsArray.filter(searchPerson);
   }
+
+  detailsArray.filter(searchPersonCity);
+
+    function searchPersonState(detailsArray){
+     if (detailsArray.state == "Gujrat"){
+      console.log(detailsArray.toString());
+    }
+  }
+  
+  detailsArray.filter(searchPersonState);
+
+  //Search person by city and state with map
+  //search by city
+  function searchByCity(contact) {
+    return contact.city + "       " + contact.firstName + "        " + contact.lastName;
+  }
+  let personByCityMap = detailsArray.map(searchByCity);  
+  console.log("\nSerching Person by city with map.\n")
+  console.log(personByCityMap);
+
+  //search by state
+  function searchByState(contact) {
+    return contact.state + "     " + contact.firstName + "     " + contact.lastName;
+  }
+  let personByStateMap = detailsArray.map(searchByState);
+  console.log("\nSerching Person by state with map.\n")
+  console.log(personByStateMap);
+}
 
 catch (e) {
   console.log(e);

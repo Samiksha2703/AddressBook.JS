@@ -201,6 +201,35 @@ let detailsArray = new Array();
 }
   console.log("Sorting by firstName");
   sortByName();
+
+  //sorting by city state and zip 
+  function sortByCity() {
+    for (let details in detailsArray) {
+      detailssArray.sort(details.city);
+    }
+    detailsArray.forEach((contact) => console.log(contact.toString()));
+  }
+
+  function sortByState() {
+    for (let details in detailsArray) {
+      detailsArray.sort(details.state);
+    }
+    detailsArray.forEach((contact) => console.log(contact.toString()));
+  }
+
+  function sortByZip() {
+    for (let details in detailsArray) {
+      detailsArray.sort(details.zip);
+    }
+    detailsArray.forEach((contact) => console.log(contact.toString()));
+  }
+  
+  console.log("\nSort By City")
+  sortByCity();
+  console.log("\nSort By State")
+  sortByState();
+  console.log("\nSort By Zip")
+  sortByZip();
   
 }
 catch (e) {

@@ -191,8 +191,18 @@ let detailsArray = new Array();
   }
   personByStateMap.reduce(countContactByState, 1);
   console.log("\nTotal number of contacts search by state  : " + countByState);
-  }
 
+  //uc11 sorting by name and printing the array
+  function sortByName() {
+  for (let details in detailsArray) {
+    detailsArray.sort(details.firstName);
+  }
+  detailsArray.forEach((contact) => console.log(contact.toString()));
+}
+  console.log("Sorting by firstName");
+  sortByName();
+  
+}
 catch (e) {
   console.log(e);
 }

@@ -109,8 +109,12 @@ let detailsArray = new Array();
     detailsArray[index].zip = "741 658";
     console.log("\ncontacts after being updated\n");
     detailsArray.forEach((contact) => console.log(contact.toString()));
-}
 
+    detailsArray.splice(index, 1);
+    console.log("\ncontacts after being deleted\n");
+    detailsArray.forEach((contact) => console.log(contact.toString()));
+    
+  }
 catch (e) {
   console.log(e);
 }

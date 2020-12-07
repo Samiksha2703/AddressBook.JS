@@ -162,7 +162,7 @@ let detailsArray = new Array();
   let personByCityMap = detailsArray.map(searchByCity);  
   console.log("\nSerching Person by city with map.\n")
   console.log(personByCityMap);
-
+  
   //search by state
   function searchByState(contact) {
     return contact.state + "     " + contact.firstName + "     " + contact.lastName;
@@ -170,7 +170,28 @@ let detailsArray = new Array();
   let personByStateMap = detailsArray.map(searchByState);
   console.log("\nSerching Person by state with map.\n")
   console.log(personByStateMap);
-}
+
+  //count number serch by city and state
+  //count by city
+  let countByCity = 0;
+  function countContactByCity(personByCityMap) {
+    if (personByCityMap != null)
+      countByCity++;
+    return countByCity;
+  }
+  personByStateMap.reduce(countContactByCity, 1);
+  console.log("\nTotal number of contacts search by city  : " + countByCity);
+
+  //count by state
+  let countByState = 0
+  function countContactByState(personByStateMap) {
+    if (personByStateMap != null)
+      countByState++;
+    return countByState;
+  }
+  personByStateMap.reduce(countContactByState, 1);
+  console.log("\nTotal number of contacts search by state  : " + countByState);
+  }
 
 catch (e) {
   console.log(e);

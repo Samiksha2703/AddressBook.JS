@@ -2,8 +2,8 @@
 class ContactDetails {
     
     constructor(...params) {
-      this.firstNameRegex = params[0];
-      this.lastNameRegex = params[1];
+      this.firstName = params[0];
+      this.lastName = params[1];
       this.address = params[2];
       this.city = params[3];
       this.state = params[4];
@@ -12,20 +12,20 @@ class ContactDetails {
       this.email = params[7];
     }
 
-    get firstNameRegex() { return this._firstNameRegex; }
-    set firstNameRegex(firstNameRegex) {
-      let firstNameRegexRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
-      if (firstNameRegexRegex.test(firstNameRegex))
-        this._firstNameRegex = firstNameRegex;
+    get firstName() { return this._firstName; }
+    set firstName(firstName) {
+      let firstNameRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
+      if (firstNameRegex.test(firstName))
+        this._firstName = firstName;
       else
         throw "Invalid first Name";
     }
   
-    get lastNameRegex() { return this._lastNameRegex; }
-    set lastNameRegex(lastNameRegex) {
-      let firstNameRegexRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
-      if (firstNameRegexRegex.test(lastNameRegex))
-        this._lastNameRegex = lastNameRegex;
+    get lastName() { return this._lastName; }
+    set lastName(lastName) {
+      let lastNameRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
+      if (lastNameRegex.test(lastName))
+        this._lastName = lastName;
       else
         throw "Invalid last Name";
     }
@@ -85,7 +85,7 @@ class ContactDetails {
     }
   
     toString() {
-      return "First Name: " + this.firstNameRegex + ", Last Name: " + this.lastNameRegex
+      return "First Name: " + this.firstName + ", Last Name: " + this.lastName
         + "\nAddress: " + this.address
         + ", City: " + this.city + ", Zip Code: " + this.zip +
         "\nState: " + this.state + "\nPhone : " + this.phoneNumber + ", Email: " + this.email;
@@ -102,7 +102,15 @@ let detailsArray = new Array();
       "963 698", "91 7525752131", "apurva.ikhe@gmail.com"));
     detailsArray.push(new ContactDetails("Pratiksha", "Thute", "Virat", "Airoli", "Maharashra",
       "852 475", "91 8624592165", "pratikshathute@gmail.com"));
-detailsArray.forEach((contact) => console.log(contact.toString()));}
+    detailsArray.forEach((contact) => console.log(contact.toString()));
+
+    let index = detailsArray.findIndex(contact => contact.firstName == "Pratiksha");
+  
+    detailsArray[index].zip = "741 658";
+    console.log("\ncontacts after being updated\n");
+    detailsArray.forEach((contact) => console.log(contact.toString()));
+}
+
 catch (e) {
   console.log(e);
 }

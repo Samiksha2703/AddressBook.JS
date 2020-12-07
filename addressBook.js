@@ -135,7 +135,14 @@ let detailsArray = new Array();
     console.log("\nnot a duplicate entry");
   else
     console.log("\nduplicate entry");
-}
+
+  console.log("\nSearching person by city ")
+  function searchPerson(detailsArray) {
+      if (detailsArray.city == "Vadodara")
+        console.log(detailsArray.toString());
+    }
+    detailsArray.filter(searchPerson);
+  }
 
 catch (e) {
   console.log(e);

@@ -113,7 +113,15 @@ let detailsArray = new Array();
     detailsArray.splice(index, 1);
     console.log("\ncontacts after being deleted\n");
     detailsArray.forEach((contact) => console.log(contact.toString()));
-    
+
+  let totalContacts = 0;
+  function FindTotalContacts(detailsArray) {
+    if (detailsArray != null)
+      totalContacts++;
+    return totalContacts;
+  }
+  detailsArray.reduce(FindTotalContacts, 1);
+  console.log(" \nTotal number of contacts in details array  : " + totalContacts);
   }
 catch (e) {
   console.log(e);

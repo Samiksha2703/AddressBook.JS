@@ -114,15 +114,29 @@ let detailsArray = new Array();
     console.log("\ncontacts after being deleted\n");
     detailsArray.forEach((contact) => console.log(contact.toString()));
 
-  let totalContacts = 0;
-  function FindTotalContacts(detailsArray) {
+    let totalContacts = 0;
+    function FindTotalContacts(detailsArray) {
     if (detailsArray != null)
       totalContacts++;
     return totalContacts;
   }
-  detailsArray.reduce(FindTotalContacts, 1);
-  console.log(" \nTotal number of contacts in details array  : " + totalContacts);
+    detailsArray.reduce(FindTotalContacts, 1);
+    console.log(" \nTotal number of contacts in details array  : " + totalContacts);
+
+  let countDuplicate = 0;
+  function checkDuplicates(contact) {
+    if (contact.firstName == "Samiksha")
+      countDuplicate++;
+    return countDuplicate;
   }
+  
+  detailsArray.forEach((contact) => checkDuplicates(contact));
+  if (countDuplicate == 1)
+    console.log("\nnot a duplicate entry");
+  else
+    console.log("\nduplicate entry");
+}
+
 catch (e) {
   console.log(e);
 }
